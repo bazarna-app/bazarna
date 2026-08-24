@@ -9,7 +9,7 @@
 .userBadge{font-size:11px;color:#b8c2cd}.logoutLink{color:#c62828;font-weight:900}
 </style><script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-import { getDatabase, ref, get, set, update, push } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-database.js";
+import { getDatabase, ref, get, set, update, push, onValue } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-database.js";
 const firebaseConfig={
   apiKey:"AIzaSyAjP6Xv_yUDAytNKHCDlVyHtCu2MHSYJSs",
   authDomain:"syria-494c4.firebaseapp.com",
@@ -23,11 +23,16 @@ const firebaseConfig={
 try{
   const app=initializeApp(firebaseConfig);
   window.bazarnaRTDB=getDatabase(app);
-  window.bazarnaRTDBFns={ref,get,set,update,push};
+  window.bazarnaRTDBFns={ref,get,set,update,push,onValue};
   window.dispatchEvent(new Event("bazarna-rtdb-ready"));
 }catch(e){console.error("RTDB init failed",e);}
 </script>
 
+
+<script>
+window.addEventListener("error", function(e){ console.error("Bazarna JS Error:", e.error || e.message); });
+window.addEventListener("unhandledrejection", function(e){ console.error("Bazarna Promise Error:", e.reason); });
+</script>
 </head><body><script>window.BAZARNA_MANAGER_WHATSAPP="963949566384";</script>
 <div id="authOverlay" class="authOverlay">
   <div class="authBox">
@@ -80,7 +85,7 @@ try{
 <script>
 const ads=[];
 let fav=JSON.parse(localStorage.getItem('bzfav')||'[]'), current=null, history=['home'],filter='';
-let slides=[];let si=0;
+let slides=[];let si=0;window.slides=slides;window.si=si;
 function $(x){return document.getElementById(x)}
 function openPage(id){document.querySelectorAll('.page').forEach(x=>x.classList.remove('on'));$(id).classList.add('on');history.push(id);scrollTo(0,0);if(id==='favorites')renderFav();if(id==='home')renderHome();if(id==='notifications'){loadNotifications(true)}}
 function back(){history.length>1?history.pop()&&openPage(history.pop()):openPage('home')}
@@ -269,11 +274,11 @@ async function loadSlider(){
     if(!url||!active)return false;
     const key=url; if(seen.has(key))return false; seen.add(key); return true;
   }).sort((a,b)=>(Number(a.order)||0)-(Number(b.order)||0)||(Number(a.createdAt)||0)-(Number(b.createdAt)||0));
-  si=0; renderSlider();
+  si=0; window.slides=slides; window.si=si; renderSlider();
   console.log('Bazarna slider count:',slides.length,slides);
 }
 
-setInterval(()=>{if(slides.length>1){si=(si+1)%slides.length;renderSlider()}},3000);
+setInterval(()=>{if(slides.length>1){si=(si+1)%slides.length;window.si=si;renderSlider()}},3000);
 
 renderHome();
 </script>
@@ -505,6 +510,98 @@ window.bazarnaManagerLogin=async function(code){
   }
   throw new Error("رمز الدخول غير صحيح.");
 };
+</script>
+
+<script>
+/* BAZARNA REALTIME SYNC: التحديث المباشر بدون خروج ودخول */
+(function(){
+  let started=false, sliderState={}, dataState={};
+  const sliderPaths=['slides','slider','sliders','banners','app/slides','settings/slides'];
+  function waitReady(){
+    if(window.bazarnaRTDB && window.bazarnaRTDBFns) return Promise.resolve();
+    return new Promise(resolve=>window.addEventListener('bazarna-rtdb-ready',resolve,{once:true}));
+  }
+  function normalizeSliderRealtime(raw,path){
+    if(!raw) return [];
+    let arr=[];
+    if(Array.isArray(raw)) arr=raw.map((v,i)=>({id:String(i),...(v&&typeof v==='object'?v:{image:v})}));
+    else if(typeof raw==='object') arr=Object.entries(raw).map(([id,v])=>({id,...(v&&typeof v==='object'?v:{image:v})}));
+    else arr=[{id:'single',image:raw}];
+    return arr.map(x=>({...x,_path:path}));
+  }
+  function sliderUrl(x){return typeof sliderImageValue==='function'?sliderImageValue(x):String(x.image||x.imageUrl||x.url||x.src||'').trim()}
+  function rebuildSlider(){
+    const all=Object.values(sliderState).flat(); const seen=new Set();
+    slides=all.filter(x=>{
+      const url=sliderUrl(x); const active=x.status!=='hidden'&&x.status!=='blocked'&&x.active!==false&&x.enabled!==false&&x.visible!==false;
+      if(!url||!active||seen.has(url))return false; seen.add(url); return true;
+    }).sort((a,b)=>(Number(a.order)||0)-(Number(b.order)||0)||(Number(a.createdAt)||0)-(Number(b.createdAt)||0));
+    if(si>=slides.length)si=0; window.slides=slides; window.si=si; renderSlider();
+  }
+  function normalizeAds(raw){
+    if(!raw||typeof raw!=='object')return [];
+    return Object.entries(raw).map(([id,a])=>({id,...a,cat:a.cat||a.category||a.type||'',loc:a.loc||a.location||'غير محدد',price:Number(a.price||a.priceSYP||0),image:a.image||a.imageUrl||'',icon:a.icon||'📦',desc:a.desc||a.description||'لا يوجد وصف',whatsapp:a.whatsapp||a.phone||a.contactPhone||a.ownerPhone||''})).filter(a=>a.status!=='blocked'&&a.status!=='deleted');
+  }
+  function rebuildAds(){
+    const combined=[...normalizeAds(dataState.ads),...normalizeAds(dataState.listings)]; const seen=new Set();
+    const rows=combined.filter(a=>{const key=(a.ownerId||'')+'|'+(a.title||'')+'|'+(a.createdAt||'');if(seen.has(key))return false;seen.add(key);return true;}).sort((a,b)=>(Number(b.createdAt)||0)-(Number(a.createdAt)||0));
+    ads.splice(0,ads.length,...rows); renderHome(); if($('ads')?.classList.contains('on'))renderAds();
+  }
+  function rebuildNotifications(raw){
+    try{
+      const s=managerSession(); const list=Object.entries(raw||{}).map(([id,n])=>({id,...n})).filter(n=>n.status!=='hidden'&&n.active!==false&&(!n.targetUserId||n.targetUserId==='all'||n.targetUserId===s?.userId||n.targetUserId===s?.phone)).sort((a,b)=>(Number(b.createdAt)||0)-(Number(a.createdAt)||0));
+      const seen=getSeenAt(); setNotificationBadge(list.some(n=>(Number(n.createdAt)||0)>seen));
+      if($('notifications')?.classList.contains('on')){
+        const box=$('noticeBox');
+        box.innerHTML=list.length?list.map(n=>`<div class="notice"><b>${escapeHtml(n.title||'إشعار من الإدارة')}</b><br><small>${escapeHtml(n.body||n.message||'')}</small><div style="font-size:9px;color:#89919a;margin-top:6px">${n.createdAt?new Date(n.createdAt).toLocaleString('ar-SY'):''}</div></div>`).join(''):'<div style="text-align:center;padding:30px;color:#89919a">لا توجد إشعارات جديدة.</div>';
+      }
+    }catch(e){console.warn('realtime notifications',e)}
+  }
+  async function start(){
+    if(started)return; started=true; await waitReady();
+    const {ref,onValue}=window.bazarnaRTDBFns, db=window.bazarnaRTDB;
+    sliderPaths.forEach(path=>onValue(ref(db,path),snap=>{sliderState[path]=normalizeSliderRealtime(snap.val(),path);rebuildSlider();},err=>console.warn('slider realtime',path,err)));
+    ['ads','listings'].forEach(path=>onValue(ref(db,path),snap=>{dataState[path]=snap.val()||{};rebuildAds();},err=>console.warn('ads realtime',path,err)));
+    onValue(ref(db,'notifications'),snap=>rebuildNotifications(snap.val()||{}),err=>console.warn('notifications realtime',err));
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
+})();
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const slider = document.querySelector('.slider');
+  if (!slider) return;
+
+  let startX = 0, startY = 0, dragging = false;
+
+  slider.addEventListener('touchstart', function(e) {
+    if (!e.touches || !e.touches.length) return;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    dragging = true;
+  }, {passive:true});
+
+  slider.addEventListener('touchend', function(e) {
+    if (!dragging || !e.changedTouches || !e.changedTouches.length) return;
+    dragging = false;
+
+    const endX = e.changedTouches[0].clientX;
+    const endY = e.changedTouches[0].clientY;
+    const dx = endX - startX;
+    const dy = endY - startY;
+
+    // Ignore vertical scrolling and tiny taps.
+    if (Math.abs(dx) < 35 || Math.abs(dx) < Math.abs(dy)) return;
+    if (!Array.isArray(window.slides) || !window.slides.length) return;
+
+    if (dx < 0) {
+      window.goToSlide((window.si || 0) + 1);
+    } else {
+      window.goToSlide((window.si || 0) - 1);
+    }
+  }, {passive:true});
+});
 </script>
 
 </body></html>
