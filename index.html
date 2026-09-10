@@ -4,9 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>بازارنا | تحميل التطبيق</title>
-
-  <meta name="description" content="حمّل تطبيق بازارنا واكتشف طريقة أسهل وأسرع للتسوق والطلب.">
+  <title>بازارنا - تطبيق بازارنا</title>
+  <meta name="description" content="حمّل تطبيق بازارنا واستمتع بتجربة سهلة وسريعة.">
 
   <style>
     * {
@@ -17,317 +16,168 @@
 
     body {
       font-family: Arial, Tahoma, sans-serif;
-      background: #f7f8fc;
-      color: #202124;
+      background: #fff8f2;
+      color: #222;
       line-height: 1.7;
     }
 
     header {
-      background: #ffffff;
-      padding: 18px 6%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: 0 2px 12px rgba(0,0,0,.07);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      background: linear-gradient(135deg, #ff6b00, #ff8c32);
+      color: white;
+      padding: 18px 20px;
+      text-align: center;
     }
 
     .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 24px;
+      font-size: 30px;
       font-weight: bold;
-      color: #ff6b00;
-    }
-
-    .logo-icon {
-      width: 45px;
-      height: 45px;
-      border-radius: 13px;
-      background: #ff6b00;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 23px;
     }
 
     .hero {
-      min-height: 650px;
-      padding: 70px 7%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 50px;
-      background: linear-gradient(135deg, #fff7ef, #ffffff);
-    }
-
-    .hero-text {
-      max-width: 620px;
-    }
-
-    .badge {
-      display: inline-block;
-      background: #fff0e3;
-      color: #ff6b00;
-      padding: 8px 18px;
-      border-radius: 30px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      font-size: 55px;
-      line-height: 1.2;
-      margin-bottom: 20px;
-    }
-
-    h1 span {
-      color: #ff6b00;
-    }
-
-    .hero-text p {
-      font-size: 20px;
-      color: #666;
-      margin-bottom: 30px;
-    }
-
-    .download-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      background: #ff6b00;
-      color: white;
-      text-decoration: none;
-      padding: 17px 30px;
-      border-radius: 14px;
-      font-size: 18px;
-      font-weight: bold;
-      box-shadow: 0 8px 25px rgba(255,107,0,.25);
-      transition: .2s;
-      cursor: pointer;
-    }
-
-    .download-btn:hover {
-      transform: translateY(-2px);
-      background: #e95e00;
-    }
-
-    .download-note {
-      margin-top: 13px;
-      color: #888;
-      font-size: 13px;
-    }
-
-    .phone {
-      width: 290px;
-      height: 570px;
-      background: #111;
-      border-radius: 42px;
-      padding: 10px;
-      box-shadow: 0 25px 60px rgba(0,0,0,.2);
-      transform: rotate(3deg);
-    }
-
-    .phone-screen {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(160deg,#fff,#fff4e9);
-      border-radius: 34px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 25px;
+      padding: 60px 20px;
       text-align: center;
-    }
-
-    .app-logo {
-      width: 100px;
-      height: 100px;
-      border-radius: 28px;
-      background: #ff6b00;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-
-    .phone-screen h2 {
-      font-size: 28px;
-      margin-bottom: 8px;
-    }
-
-    .phone-screen p {
-      color: #777;
-    }
-
-    .features {
-      padding: 80px 7%;
       background: white;
-      text-align: center;
     }
 
-    .section-title {
-      font-size: 34px;
-      margin-bottom: 12px;
-    }
-
-    .section-description {
-      color: #777;
-      margin-bottom: 45px;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
-
-    .feature {
-      background: #f8f9fb;
-      padding: 30px 22px;
-      border-radius: 20px;
-    }
-
-    .feature-icon {
-      font-size: 40px;
+    .hero h1 {
+      font-size: 42px;
+      color: #ff6b00;
       margin-bottom: 15px;
     }
 
-    .feature h3 {
-      margin-bottom: 8px;
+    .hero p {
+      font-size: 19px;
+      max-width: 650px;
+      margin: 0 auto 30px;
+      color: #555;
     }
 
-    .feature p {
-      color: #777;
-      font-size: 15px;
+    .download-btn {
+      display: inline-block;
+      background: #ff6b00;
+      color: white;
+      text-decoration: none;
+      padding: 15px 30px;
+      border-radius: 12px;
+      font-size: 19px;
+      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(255, 107, 0, 0.25);
+      transition: 0.2s;
     }
 
-    .steps {
-      padding: 80px 7%;
-      text-align: center;
+    .download-btn:hover {
+      background: #e85d00;
+      transform: translateY(-2px);
     }
 
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
+    .section {
+      padding: 50px 20px;
       max-width: 1000px;
       margin: auto;
     }
 
+    .section h2 {
+      text-align: center;
+      color: #ff6b00;
+      margin-bottom: 30px;
+      font-size: 30px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature {
+      background: white;
+      padding: 25px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    }
+
+    .feature .icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .feature h3 {
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .feature p {
+      color: #666;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
     .step {
       background: white;
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 5px 25px rgba(0,0,0,.05);
+      border-radius: 16px;
+      padding: 25px;
+      text-align: center;
     }
 
     .number {
-      width: 48px;
-      height: 48px;
-      margin: 0 auto 15px;
-      background: #ff6b00;
-      color: white;
+      width: 45px;
+      height: 45px;
+      line-height: 45px;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    .final-download {
-      margin: 40px 7% 80px;
-      padding: 60px 25px;
-      text-align: center;
-      border-radius: 30px;
       background: #ff6b00;
       color: white;
+      margin: 0 auto 15px;
+      font-weight: bold;
+      font-size: 20px;
     }
 
-    .final-download h2 {
-      font-size: 35px;
-      margin-bottom: 12px;
+    .download-section {
+      text-align: center;
+      padding: 60px 20px;
+      background: #fff0e5;
     }
 
-    .final-download p {
-      margin-bottom: 25px;
-      opacity: .9;
-    }
-
-    .final-download .download-btn {
-      background: white;
+    .download-section h2 {
       color: #ff6b00;
-      box-shadow: none;
+      margin-bottom: 15px;
+      font-size: 32px;
+    }
+
+    .download-section p {
+      margin-bottom: 25px;
+      color: #555;
     }
 
     footer {
-      background: #171717;
-      color: #aaa;
-      padding: 35px 7%;
-      text-align: center;
-    }
-
-    footer strong {
+      background: #222;
       color: white;
+      text-align: center;
+      padding: 25px 15px;
+      font-size: 14px;
     }
 
-    .footer-links {
-      margin-top: 12px;
-    }
-
-    .footer-links a {
-      color: #aaa;
-      text-decoration: none;
-      margin: 0 8px;
-    }
-
-    @media (max-width: 800px) {
-
-      header {
-        padding: 14px 5%;
-      }
-
-      .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 55px 5%;
-      }
-
-      h1 {
-        font-size: 40px;
-      }
-
-      .hero-text p {
-        font-size: 17px;
-      }
-
-      .phone {
-        width: 245px;
-        height: 480px;
-      }
-
-      .features-grid,
-      .steps-grid {
-        grid-template-columns: 1fr;
+    @media (max-width: 700px) {
+      .hero h1 {
+        font-size: 34px;
       }
 
       .features,
       .steps {
-        padding: 60px 5%;
+        grid-template-columns: 1fr;
       }
 
-      .final-download {
-        margin: 20px 5% 60px;
+      .hero {
+        padding: 45px 15px;
+      }
+
+      .download-btn {
+        width: 100%;
+        max-width: 350px;
       }
     }
   </style>
@@ -335,178 +185,118 @@
 
 <body>
 
-<header>
-  <div class="logo">
-    <div class="logo-icon">🛍️</div>
-    بازارنا
-  </div>
-</header>
+  <header>
+    <div class="logo">🛍️ بازارنا</div>
+  </header>
 
-<section class="hero">
+  <section class="hero">
 
-  <div class="hero-text">
-
-    <div class="badge">📱 تطبيق بازارنا</div>
-
-    <h1>
-      كل ما تحتاجه<br>
-      <span>بمكان واحد</span>
-    </h1>
+    <h1>مرحباً بك في بازارنا</h1>
 
     <p>
-      حمّل تطبيق بازارنا واستمتع بتجربة سهلة وسريعة
-      للوصول إلى المتاجر والمنتجات والخدمات.
+      تطبيق بازارنا يجعل تجربة التسوق والوصول إلى الخدمات أسهل وأسرع.
+      حمّل التطبيق الآن وابدأ باستخدام بازارنا.
     </p>
 
-    <!-- رابط ملف APK -->
     <a
       class="download-btn"
-      href="bazarna.apk"
-      download="bazarna.apk">
+      href="https://github.com/bazarna-app/bazarna/releases/download/untagged-5437072f1ba4202bf7f3/1.apk">
       ⬇️ تحميل تطبيق بازارنا
     </a>
 
-    <div class="download-note">
-      Android APK • تحميل مباشر
-    </div>
+  </section>
 
-  </div>
 
-  <div class="phone">
+  <section class="section">
 
-    <div class="phone-screen">
+    <h2>مميزات بازارنا</h2>
 
-      <div class="app-logo">
-        🛍️
+    <div class="features">
+
+      <div class="feature">
+        <div class="icon">🛒</div>
+        <h3>تسوق بسهولة</h3>
+        <p>
+          تجربة استخدام بسيطة وسهلة للوصول إلى المنتجات والخدمات.
+        </p>
       </div>
 
-      <h2>بازارنا</h2>
+      <div class="feature">
+        <div class="icon">📍</div>
+        <h3>اختيار الموقع</h3>
+        <p>
+          اختر موقعك بسهولة للحصول على الخدمات المناسبة لمكانك.
+        </p>
+      </div>
 
-      <p>
-        تسوّق واطلب بسهولة
-      </p>
+      <div class="feature">
+        <div class="icon">🚚</div>
+        <h3>توصيل سريع</h3>
+        <p>
+          احصل على طلباتك بطريقة سهلة وسريعة.
+        </p>
+      </div>
 
     </div>
 
-  </div>
+  </section>
 
-</section>
 
-<section class="features">
+  <section class="section">
 
-  <h2 class="section-title">
-    لماذا بازارنا؟
-  </h2>
+    <h2>كيف تستخدم بازارنا؟</h2>
 
-  <p class="section-description">
-    تجربة بسيطة وسريعة مصممة لتسهّل عليك طلباتك اليومية.
-  </p>
+    <div class="steps">
 
-  <div class="features-grid">
+      <div class="step">
+        <div class="number">1</div>
+        <h3>حمّل التطبيق</h3>
+        <p>
+          اضغط على زر التحميل وثبّت تطبيق بازارنا على هاتفك.
+        </p>
+      </div>
 
-    <div class="feature">
-      <div class="feature-icon">🛒</div>
-      <h3>تسوّق بسهولة</h3>
-      <p>
-        تصفح المنتجات والمتاجر بطريقة سهلة ومنظمة.
-      </p>
+      <div class="step">
+        <div class="number">2</div>
+        <h3>افتح التطبيق</h3>
+        <p>
+          سجّل الدخول وابدأ باستخدام التطبيق.
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="number">3</div>
+        <h3>ابدأ الآن</h3>
+        <p>
+          استمتع بخدمات بازارنا بسهولة.
+        </p>
+      </div>
+
     </div>
 
-    <div class="feature">
-      <div class="feature-icon">📍</div>
-      <h3>توصيل إلى موقعك</h3>
-      <p>
-        اختر موقع التسليم وأرسل طلبك بسهولة.
-      </p>
-    </div>
+  </section>
 
-    <div class="feature">
-      <div class="feature-icon">⚡</div>
-      <h3>سريع وبسيط</h3>
-      <p>
-        واجهة سهلة الاستخدام وخطوات واضحة لإتمام الطلب.
-      </p>
-    </div>
 
-  </div>
+  <section class="download-section">
 
-</section>
+    <h2>جاهز لتجربة بازارنا؟</h2>
 
-<section class="steps">
+    <p>
+      حمّل التطبيق الآن وابدأ تجربتك.
+    </p>
 
-  <h2 class="section-title">
-    كيف تبدأ؟
-  </h2>
+    <a
+      class="download-btn"
+      href="https://github.com/bazarna-app/bazarna/releases/download/untagged-5437072f1ba4202bf7f3/1.apk">
+      📲 تحميل التطبيق
+    </a>
 
-  <p class="section-description">
-    ثلاث خطوات فقط للبدء باستخدام بازارنا
-  </p>
+  </section>
 
-  <div class="steps-grid">
 
-    <div class="step">
-      <div class="number">1</div>
-      <h3>حمّل التطبيق</h3>
-      <p>
-        اضغط على زر تحميل تطبيق بازارنا.
-      </p>
-    </div>
-
-    <div class="step">
-      <div class="number">2</div>
-      <h3>ثبّت التطبيق</h3>
-      <p>
-        افتح ملف APK وثبّت التطبيق على هاتفك.
-      </p>
-    </div>
-
-    <div class="step">
-      <div class="number">3</div>
-      <h3>ابدأ الاستخدام</h3>
-      <p>
-        سجّل الدخول واختر موقعك وابدأ طلباتك.
-      </p>
-    </div>
-
-  </div>
-
-</section>
-
-<section class="final-download">
-
-  <h2>
-    جاهز لتجربة بازارنا؟
-  </h2>
-
-  <p>
-    حمّل التطبيق الآن وابدأ.
-  </p>
-
-  <!-- رابط ملف APK -->
-  <a
-    class="download-btn"
-    href="bazarna.apk"
-    download="bazarna.apk">
-    📲 تحميل التطبيق
-  </a>
-
-</section>
-
-<footer>
-
-  <strong>بازارنا</strong>
-
-  <div class="footer-links">
-    <a href="#">سياسة الخصوصية</a>
-    <a href="#">شروط الاستخدام</a>
-    <a href="#">تواصل معنا</a>
-  </div>
-
-  <p style="margin-top:15px;">
-    © 2026 بازارنا. جميع الحقوق محفوظة.
-  </p>
-
-</footer>
+  <footer>
+    © 2026 بازارنا - جميع الحقوق محفوظة
+  </footer>
 
 </body>
 </html>
