@@ -1,115 +1,96 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>بازارنا</title><style>
-*{box-sizing:border-box}body{margin:0;background:#e9edf1;font-family:Tahoma,Arial;color:#172033}.app{width:min(430px,100%);margin:auto;min-height:100vh;background:#fff;padding-bottom:76px}.page{display:none}.page.on{display:block}.head{background:#0d2239;color:#fff;padding:16px;border-radius:0 0 22px 22px}.line{display:flex;justify-content:space-between;align-items:center}.brand{font-size:24px;font-weight:900;color:#e5b545}.iconbtn{font-size:25px;cursor:pointer;position:relative}.notifBell{position:relative;display:inline-flex;align-items:center;justify-content:center}.notifBadge{position:absolute;top:-3px;right:-5px;width:10px;height:10px;background:#e53935;border:2px solid #0d2239;border-radius:50%;display:none}.notifBadge.show{display:block}.search{background:#fff;color:#8a939e;border-radius:13px;padding:12px;margin-top:13px;cursor:pointer}.pad{padding:15px}.slider{height:175px;background:#eef1f4;border-radius:18px;position:relative;overflow:hidden}.slider img{width:100%;height:100%;display:block;object-fit:cover}.sliderDots{position:absolute;bottom:9px;left:0;right:0;display:flex;justify-content:center;gap:6px;z-index:3;direction:ltr}.sliderDot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.65);border:1px solid rgba(0,0,0,.15);padding:0;cursor:pointer}.sliderDot.on{width:9px;height:9px;background:#d7a33d;border-color:#fff}.section{display:flex;justify-content:space-between;margin:17px 0 10px}.more{font-size:12px;color:#bd8927;cursor:pointer}.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.cat{border:1px solid #eee;border-radius:13px;padding:10px 2px;text-align:center;font-size:10px;cursor:pointer}.cat i{display:block;font-size:23px;font-style:normal;margin-bottom:5px}.products{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.card{border:1px solid #e8ebee;border-radius:14px;overflow:hidden;cursor:pointer;position:relative;background:white}.pic{height:140px;background:#f0f2f4;display:flex;align-items:center;justify-content:center;font-size:55px;overflow:hidden}.pic img{width:100%;height:100%;object-fit:cover}.pb{padding:9px}.pb h4{margin:0 0 6px;font-size:12px}.price{color:#bd8927;font-weight:900}.loc{font-size:10px;color:#89919a;margin-top:4px}.heart{position:absolute;top:7px;left:7px;border:0;background:white;border-radius:50%;width:31px;height:31px;cursor:pointer}.top{background:#0d2239;color:white;padding:16px;display:flex;justify-content:space-between;align-items:center}.field{width:100%;padding:13px;border:1px solid #ddd;border-radius:11px;margin:7px 0;font-family:inherit}.btn{width:100%;padding:13px;border:0;border-radius:11px;background:#d7a33d;font-weight:900;cursor:pointer}.row{padding:15px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;cursor:pointer}.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(430px,100%);height:70px;background:#0d2239;color:#fff;display:flex;align-items:center;justify-content:space-around;z-index:40}.nav{font-size:9px;text-align:center;cursor:pointer}.nav span{display:block;font-size:21px}.plus{width:52px;height:52px;background:#d7a33d;color:#14263a;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;margin-top:-27px;cursor:pointer}.drawer{position:fixed;inset:0;background:#0008;z-index:100;display:none}.drawer.open{display:block}.drawerPanel{width:min(330px,86%);height:100%;background:#0d2239;color:white;padding:20px;overflow:auto}.drawerHead{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffffff22;padding-bottom:18px}.drawerRow{padding:15px 5px;border-bottom:1px solid #ffffff16;cursor:pointer;display:flex;justify-content:space-between}.drawerSection{color:#aeb9c4;font-size:11px;margin-top:20px}.detailPic{height:300px;background:#f0f2f4;display:flex;align-items:center;justify-content:center;font-size:100px}.notice{padding:14px;border-bottom:1px solid #eee}.chat{padding:15px}.bubble{padding:11px;border-radius:14px;background:#eef1f4;margin:8px 0}.mine{background:#d7a33d;margin-right:35px}.toast{position:fixed;bottom:85px;left:50%;transform:translateX(-50%);background:#0d2239;color:#fff;padding:12px 18px;border-radius:12px;z-index:200;display:none}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بازارنا | تحميل التطبيق</title>
+<meta name="description" content="حمّل تطبيق بازارنا للأندرويد">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Tahoma,sans-serif;background:#f7f8fc;color:#202124;line-height:1.7}
+header{background:#fff;padding:16px 6%;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px rgba(0,0,0,.07);position:sticky;top:0;z-index:5}
+.logo{display:flex;align-items:center;gap:10px;font-size:25px;font-weight:800;color:#ff6b00}
+.logo-icon{width:46px;height:46px;border-radius:14px;background:#ff6b00;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px}
+.hero{min-height:650px;padding:65px 7%;display:flex;align-items:center;justify-content:center;gap:80px;background:linear-gradient(135deg,#fff7ef,#fff)}
+.hero-text{max-width:600px}
+.badge{display:inline-block;background:#fff0e3;color:#ff6b00;padding:7px 18px;border-radius:30px;font-weight:700;margin-bottom:18px}
+h1{font-size:54px;line-height:1.2;margin-bottom:18px}
+h1 span{color:#ff6b00}
+.hero-text p{font-size:20px;color:#666;margin-bottom:28px}
+.download-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#ff6b00;color:#fff;text-decoration:none;padding:16px 28px;border-radius:14px;font-size:18px;font-weight:700;box-shadow:0 8px 25px rgba(255,107,0,.25);transition:.2s}
+.download-btn:hover{transform:translateY(-2px);background:#e95e00}
+.note{margin-top:12px;color:#888;font-size:13px}
+.phone{width:270px;height:535px;background:#111;border-radius:40px;padding:9px;box-shadow:0 25px 60px rgba(0,0,0,.18)}
+.screen{height:100%;border-radius:32px;background:linear-gradient(160deg,#fff,#fff4e9);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:25px}
+.app-logo{width:100px;height:100px;border-radius:28px;background:#ff6b00;color:#fff;display:flex;align-items:center;justify-content:center;font-size:48px;margin-bottom:18px}
+.screen h2{font-size:28px}.screen p{color:#777}
+section.info{padding:75px 7%;background:#fff;text-align:center}
+.title{font-size:34px;margin-bottom:10px}.desc{color:#777;margin-bottom:40px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#f8f9fb;padding:28px 20px;border-radius:20px}
+.icon{font-size:38px;margin-bottom:10px}.card p{color:#777;font-size:15px}
+.final{margin:45px 7% 75px;padding:55px 20px;text-align:center;border-radius:28px;background:#ff6b00;color:#fff}
+.final h2{font-size:34px;margin-bottom:8px}.final p{margin-bottom:23px}
+.final .download-btn{background:#fff;color:#ff6b00;box-shadow:none}
+footer{background:#171717;color:#aaa;padding:30px 7%;text-align:center}
+footer strong{color:#fff}.links{margin-top:10px}.links a{color:#aaa;text-decoration:none;margin:0 7px}
+@media(max-width:800px){
+.hero{flex-direction:column;text-align:center;padding:50px 5%;gap:45px}
+h1{font-size:40px}.hero-text p{font-size:17px}
+.phone{width:235px;height:465px}.grid{grid-template-columns:1fr}
+section.info{padding:60px 5%}.final{margin:25px 5% 55px}
+}
+</style>
+</head>
+<body>
 
-.authOverlay{position:fixed;inset:0;background:linear-gradient(145deg,#0d2239,#172f49);z-index:9999;display:flex;align-items:center;justify-content:center;padding:18px}
-.authBox{width:min(420px,100%);background:#fff;border-radius:24px;padding:24px;box-shadow:0 20px 60px #0006}
-.authLogo{text-align:center;font-size:32px;font-weight:900;color:#d7a33d;margin-bottom:5px}.authSub{text-align:center;color:#77808b;margin-bottom:18px}
-.authTabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:#eef1f4;border-radius:12px;padding:4px;margin-bottom:12px}.authTab{border:0;background:transparent;padding:10px;border-radius:9px;font-weight:900;cursor:pointer}.authTab.on{background:#0d2239;color:#fff}
-.authMode{display:none}.authMode.on{display:block}.authBox .field{margin:6px 0}.authBtn{width:100%;padding:13px;border:0;border-radius:12px;background:#d7a33d;font-weight:900;cursor:pointer;margin-top:8px}.authBtn.secondary{background:#0d2239;color:#fff}.authMsg{min-height:20px;text-align:center;color:#c62828;font-size:12px;margin-top:8px;line-height:1.5}.authHint{text-align:center;color:#8a939e;font-size:11px;margin-top:12px;line-height:1.6}.authHide{display:none!important}
-.userBadge{font-size:11px;color:#b8c2cd}.logoutLink{color:#c62828;font-weight:900}
-</style><script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-import { getDatabase, ref, get, set, update, push, onValue } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-database.js";
-const firebaseConfig={
-  apiKey:"AIzaSyAjP6Xv_yUDAytNKHCDlVyHtCu2MHSYJSs",
-  authDomain:"syria-494c4.firebaseapp.com",
-  databaseURL:"https://syria-494c4-default-rtdb.firebaseio.com",
-  projectId:"syria-494c4",
-  storageBucket:"syria-494c4.firebasestorage.app",
-  messagingSenderId:"51195718660",
-  appId:"1:51195718660:web:86efa35d98d115e05c1951",
-  measurementId:"G-C01RMB6KN5"
-};
-try{
-  const app=initializeApp(firebaseConfig);
-  window.bazarnaRTDB=getDatabase(app);
-  window.bazarnaRTDBFns={ref,get,set,update,push,onValue};
-  window.dispatchEvent(new Event("bazarna-rtdb-ready"));
-}catch(e){console.error("RTDB init failed",e);}
-</script>
+<header>
+  <div class="logo"><div class="logo-icon">🛍️</div>بازارنا</div>
+</header>
 
-
-<script>
-window.addEventListener("error", function(e){ console.error("Bazarna JS Error:", e.error || e.message); });
-window.addEventListener("unhandledrejection", function(e){ console.error("Bazarna Promise Error:", e.reason); });
-</script>
-</head><body><script>window.BAZARNA_MANAGER_WHATSAPP="963949566384";</script>
-<div id="authOverlay" class="authOverlay">
-  <div class="authBox">
-    <div class="authLogo">🛒 بازارنا</div>
-    <div class="authSub">الدخول إلى التطبيق يحتاج رمزاً من إدارة التطبيق</div>
-    <div style="text-align:center;font-size:42px;margin:8px 0">🔐</div>
-    <p style="text-align:center;line-height:1.8;color:#666">اطلب رمز الدخول من الإدارة عبر واتساب، ثم أدخل الرمز هنا.</p>
-    <input id="managerUserName" class="field" placeholder="اسمك">
-    <input id="managerUserPhone" class="field" type="tel" inputmode="tel" placeholder="رقم واتسابك">
-    <button id="requestManagerCodeBtn" class="authBtn" style="background:#168c45;color:#fff">💬 طلب رمز الدخول عبر واتساب</button>
-    <div style="height:10px"></div>
-    <input id="managerLoginCode" class="field" inputmode="numeric" maxlength="8" placeholder="أدخل رمز الدخول الذي أعطتك الإدارة">
-    <button id="managerLoginBtn" class="authBtn secondary">🔓 دخول</button>
-    <div id="authMsg" class="authMsg"></div>
-    <div class="authHint">الرمز خاص بحسابك ويمكن للإدارة إيقاف الحساب أو تغيير الرمز في أي وقت.</div>
+<main>
+<section class="hero">
+  <div class="hero-text">
+    <div class="badge">📱 تطبيق بازارنا</div>
+    <h1>بازارنا<br><span>كل ما تحتاجه بمكان واحد</span></h1>
+    <p>حمّل تطبيق بازارنا الآن واستمتع بتجربة سهلة وسريعة للوصول إلى المتاجر والمنتجات والخدمات.</p>
+    <a class="download-btn" href="bazarna.apk" download>⬇️ تحميل تطبيق بازارنا</a>
+    <div class="note">Android APK • تحميل مباشر</div>
   </div>
-</div>
-<div class="app">
 
-<section id="home" class="page on"><div class="head"><div class="line"><span class="iconbtn" onclick="openMenu()">☰</span><span class="brand">بازارنا</span><span class="iconbtn notifBell" onclick="openPage('notifications')">🔔<i id="notifBadge" class="notifBadge"></i></span></div><div class="search" onclick="openPage('search')">⌕ ابحث عن أي شيء...</div></div><div class="pad"><div class="slider"><img id="slideImage" alt="إعلان السلايدر"><div id="sliderDots" class="sliderDots" aria-label="مؤشرات السلايدر"></div></div><div class="section"><b>الأقسام الرئيسية</b><span class="more" onclick="openAds()">عرض الكل</span></div><div class="cats">
-<div class="cat" onclick="category('أجهزة وموبايلات')"><i>📱</i>موبايلات</div><div class="cat" onclick="category('إلكترونيات')"><i>🖥️</i>إلكترونيات</div><div class="cat" onclick="category('ملابس وأزياء')"><i>👕</i>ملابس</div><div class="cat" onclick="category('سيارات')"><i>🚗</i>سيارات</div><div class="cat" onclick="category('بيع بيوت')"><i>🏠</i>بيع بيوت</div><div class="cat" onclick="category('إيجار بيوت')"><i>🏡</i>إيجار</div><div class="cat" onclick="category('أثاث')"><i>🛋️</i>أثاث</div><div class="cat" onclick="category('خدمات')"><i>🛠️</i>خدمات</div></div>
-<div class="section"><b>إعلانات مميزة</b><span class="more" onclick="openAds()">عرض الكل</span></div><div id="homeCards" class="products"></div></div></section>
+  <div class="phone">
+    <div class="screen">
+      <div class="app-logo">🛍️</div>
+      <h2>بازارنا</h2>
+      <p>تسوّق واطلب بسهولة</p>
+    </div>
+  </div>
+</section>
 
-<section id="ads" class="page"><div class="top"><span class="iconbtn" onclick="openPage('home')">←</span><b>الإعلانات</b><span onclick="openPage('search')" style="cursor:pointer">⌕</span></div><div class="pad"><div id="adsCards" class="products"></div></div></section>
+<section class="info">
+  <h2 class="title">لماذا بازارنا؟</h2>
+  <p class="desc">تجربة بسيطة وسريعة مصممة لتسهّل عليك طلباتك اليومية.</p>
+  <div class="grid">
+    <div class="card"><div class="icon">🛒</div><h3>تسوّق بسهولة</h3><p>تصفح المنتجات والمتاجر بطريقة سهلة ومنظمة.</p></div>
+    <div class="card"><div class="icon">📍</div><h3>توصيل إلى موقعك</h3><p>اختر موقع التسليم وأرسل طلبك بسهولة.</p></div>
+    <div class="card"><div class="icon">⚡</div><h3>سريع وبسيط</h3><p>واجهة سهلة الاستخدام وخطوات واضحة لإتمام الطلب.</p></div>
+  </div>
+</section>
 
-<section id="detail" class="page"><div class="top"><span onclick="back()">←</span><b>تفاصيل الإعلان</b><span onclick="saveCurrent()">♡</span></div><div id="detailBody"></div></section>
+<section class="final">
+  <h2>جاهز لتجربة بازارنا؟</h2>
+  <p>حمّل التطبيق الآن وابدأ.</p>
+  <a class="download-btn" href="bazarna.apk" download>📲 تحميل التطبيق</a>
+</section>
+</main>
 
-<section id="add" class="page"><div class="top"><span onclick="back()">×</span><b>إضافة إعلان</b><span>✓</span></div><div class="pad"><label>صور الإعلان</label><input id="photo" class="field" type="file" accept="image/*" multiple onchange="preview()"><div id="preview" style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px"></div><input id="title" class="field" placeholder="عنوان الإعلان"><select id="category" class="field"><option>أجهزة وموبايلات</option><option>إلكترونيات</option><option>ملابس وأزياء</option><option>سيارات</option><option>بيع بيوت</option><option>إيجار بيوت</option><option>أثاث</option><option>خدمات</option></select><label for="price" style="font-size:12px;font-weight:800;color:#555">السعر بالدولار الأمريكي (USD)</label><input id="price" class="field" type="number" min="0" step="0.01" placeholder="السعر بالدولار — مثال: 150"><input id="location" class="field" placeholder="الموقع"><input id="whatsapp" class="field" type="tel" inputmode="tel" placeholder="رقم واتساب المعلن (مثال: 0997932534)"><textarea id="desc" class="field" rows="4" placeholder="الوصف"></textarea><button class="btn" onclick="publish()">نشر الإعلان</button></div></section>
-
-<section id="search" class="page"><div class="top"><span onclick="back()">×</span><b>البحث</b><span>⌕</span></div><div class="pad"><input id="searchBox" class="field" placeholder="اكتب كلمة البحث..." oninput="doSearch()"><div id="searchCards" class="products"></div></div></section>
-
-<section id="account" class="page"><div class="top"><span onclick="back()">←</span><b>حسابي</b><span>👤</span></div><div class="pad"><div style="background:#0d2239;color:white;border-radius:18px;padding:25px;text-align:center"><div id="accountAvatar" style="font-size:50px">👤</div><h2 id="accountName">حسابي</h2><p id="accountContact">غير مسجل الدخول</p></div><div class="row" onclick="myAds()">إعلاناتي <span>›</span></div><div class="row" onclick="openPage('favorites')">المفضلة <span>›</span></div><div class="row" onclick="openPage('notifications')">الإشعارات <span>›</span></div><div class="row logoutLink" onclick="logoutUser()">تسجيل الخروج <span>↪</span></div></div></section>
-
-<section id="favorites" class="page"><div class="top"><span onclick="back()">←</span><b>المفضلة</b><span>♡</span></div><div class="pad"><div id="favCards" class="products"></div></div></section>
-
-<section id="messages" class="page"><div class="top"><span onclick="back()">←</span><b>الرسائل</b><span>✉</span></div><div class="chat"><div class="bubble">مرحباً! هل الإعلان ما زال متاحاً؟</div><div class="bubble mine">نعم، متاح.</div><input id="msg" class="field" placeholder="اكتب رسالة..." onkeydown="if(event.key==='Enter')sendMsg()"><button class="btn" onclick="sendMsg()">إرسال</button></div></section>
-
-<section id="notifications" class="page"><div class="top"><span onclick="back()">←</span><b>الإشعارات</b><span>🔔</span></div><div class="pad"><div id="noticeBox"><div style="text-align:center;padding:30px;color:#89919a">جاري تحميل الإشعارات...</div></div></div></section>
-
-<section id="about" class="page"><div class="top"><span onclick="back()">←</span><b>من نحن</b><span>ⓘ</span></div><div class="pad"><h2>بازارنا</h2><p style="line-height:2">منصة محلية للبيع والشراء والإيجار والخدمات، تجمع الإعلانات والفرص في مكان واحد.</p></div></section>
-<section id="terms" class="page"><div class="top"><span onclick="back()">←</span><b>الشروط والأحكام</b><span>▤</span></div><div class="pad"><p style="line-height:2">يجب أن تكون الإعلانات صحيحة وألا تتضمن محتوى مخالفاً. تحتفظ الإدارة بحق مراجعة وحذف أي إعلان مخالف.</p></div></section>
-<section id="contact" class="page"><div class="top"><span onclick="back()">←</span><b>تواصل معنا</b><span>☎</span></div><div class="pad"><input class="field" placeholder="اسمك"><textarea id="contactText" class="field" rows="4" placeholder="رسالتك"></textarea><button class="btn" onclick="contact()">إرسال</button></div></section>
-
-<div id="drawer" class="drawer" onclick="if(event.target===this)closeMenu()"><div class="drawerPanel"><div class="drawerHead"><span class="brand">بازارنا</span><span class="iconbtn" onclick="closeMenu()">×</span></div><div style="padding:18px 4px"><b id="drawerUserName">👤 حسابي</b><div id="drawerUserContact" style="font-size:11px;color:#b8c2cd;margin-top:5px">تسجيل الدخول مطلوب</div></div><div class="drawerSection">الرئيسية</div><div class="drawerRow" onclick="menu('home')"><span>🏠   الرئيسية</span><b>›</b></div><div class="drawerRow" onclick="menu('ads')"><span>📂   كل الإعلانات</span><b>›</b></div><div class="drawerRow" onclick="closeMenu();openPage('home');alert('اختر القسم من الصفحة الرئيسية')"><span>▦   الأقسام</span><b>›</b></div><div class="drawerRow" onclick="menu('ads')"><span>⭐   الإعلانات المميزة</span><b>›</b></div><div class="drawerSection">حسابي</div><div class="drawerRow" onclick="menu('add')"><span>➕   أضف إعلان</span><b>›</b></div><div class="drawerRow" onclick="menu('account')"><span>👤   حسابي</span><b>›</b></div><div class="drawerRow" onclick="menu('favorites')"><span>❤️   المفضلة</span><b>›</b></div><div class="drawerRow" onclick="menu('messages')"><span>💬   الرسائل</span><b>›</b></div><div class="drawerRow" onclick="menu('notifications')"><span>🔔   الإشعارات</span><b>›</b></div><div class="drawerSection">معلومات</div><div class="drawerRow" onclick="menu('about')"><span>ⓘ   من نحن</span><b>›</b></div><div class="drawerRow" onclick="menu('terms')"><span>📜   الشروط والأحكام</span><b>›</b></div><div class="drawerRow" onclick="menu('contact')"><span>☎️   تواصل معنا</span><b>›</b></div></div></div>
-
-<div id="toast" class="toast"></div>
-<nav class="bottom"><div class="nav" onclick="openPage('home')"><span>⌂</span>الرئيسية</div><div class="nav" onclick="openAds()"><span>▦</span>الإعلانات</div><div class="plus" onclick="openPage('add')">+</div><div class="nav" onclick="openPage('messages')"><span>✉</span>الرسائل</div><div class="nav" onclick="openPage('account')"><span>♙</span>الحساب</div></nav>
-</div>
-
-<script>
-const ads=[];
-let fav=JSON.parse(localStorage.getItem('bzfav')||'[]'), current=null, history=['home'],filter='';
-let slides=[];let si=0;window.slides=slides;window.si=si;
-function $(x){return document.getElementById(x)}
-function openPage(id){document.querySelectorAll('.page').forEach(x=>x.classList.remove('on'));$(id).classList.add('on');history.push(id);scrollTo(0,0);if(id==='favorites')renderFav();if(id==='home')renderHome();if(id==='notifications'){loadNotifications(true)}}
-function back(){history.length>1?history.pop()&&openPage(history.pop()):openPage('home')}
-function openMenu(){$('drawer').classList.add('open')}
-function closeMenu(){$('drawer').classList.remove('open')}
-function menu(id){closeMenu();openPage(id)}
-function card(a){let visual=a.image?`<img src="${a.image}" alt="">`:a.icon;return `<div class="card" onclick="detail(${a.id})"><button class="heart" onclick="event.stopPropagation();toggleFav(${a.id})">${fav.includes(a.id)?'♥':'♡'}</button><div class="pic">${visual}</div><div class="pb"><h4>${a.title}</h4><div class="price">$${Number(a.price||0).toLocaleString()}</div><div class="loc">📍 ${a.loc}</div></div></div>`}
-function renderHome(){$('homeCards').innerHTML=ads.slice(0,6).map(card).join('')}
-function openAds(){filter='';openPage('ads');renderAds()}
-function category(c){filter=c;openPage('ads');renderAds()}
-function renderAds(){let x=filter?ads.filter(a=>a.cat===filter):ads;$('adsCards').innerHTML=x.map(card).join('')||'<div class="pad">لا توجد إعلانات.</div>'}
-function normalizeWhatsAppNumber(phone){let n=String(phone||'').replace(/\D/g,'');if(n.startsWith('00'))n=n.slice(2);if(n.startsWith('0'))n='963'+n.slice(1);return n}
-function openWhatsApp(id){const a=ads.find(x=>x.id===id);if(!a)return;const n=normalizeWhatsAppNumber(a.whatsapp||a.phone);if(!n)return toast('صاحب الإعلان لم يضف رقم واتساب');const msg=`مرحباً، أنا مهتم بـ "${a.title}" (${a.cat||"الإعلان"}) الذي نشرته في بازارنا، وأريد معرفة التفاصيل والسعر.`;window.open(`https://wa.me/${n}?text=${encodeURIComponent(msg)}`,'_blank')}
-function detail(id){current=ads.find(a=>a.id===id);let visual=current.image?`<img src="${current.image}" style="width:100%;height:300px;object-fit:cover" alt="">`:current.icon;$('detailBody').innerHTML=`<div class="detailPic">${visual}</div><div class="pad"><h2>${current.title}</h2><h2 class="price">$${Number(current.price||0).toLocaleString()}</h2><p>📍 ${current.loc}</p><p style="line-height:2">${current.desc}</p><button class="btn" style="background:#7faa3d;color:#13200a" onclick="openWhatsApp(${current.id})">🟢 واتساب</button><div style="height:8px"></div><button class="btn" onclick="openPage('messages')">💬 مراسلة البائع</button><div style="height:8px"></div><button class="btn" onclick="toggleFav(${current.id})">♡ حفظ في المفضلة</button></div>`;openPage('detail')}
-function toggleFav(id){fav.includes(id)?fav=fav.filter(x=>x!==id):fav.push(id);localStorage.setItem('bzfav',JSON.stringify(fav));renderHome();if($('favorites').classList.contains('on'))renderFav();toast(fav.includes(id)?'تمت الإضافة للمفضلة':'تمت الإزالة من المفضلة')}
-function saveCurrent(){if(current)toggleFav(current.id)}
-function renderFav(){$('favCards').innerHTML=ads.filter(a=>fav.includes(a.id)).map(card).join('')||'<div style="grid-column:1/-1;text-align:center;padding:30px;color:#89919a">لا توجد إعلانات محفوظة</div>'}
-function myAds(){toast('لا توجد إعلانات منشورة بهذا الحساب حالياً')}
-function preview(){let box=$('preview');box.innerHTML='';[...$('photo').files].forEach(f=>{let im=document.createElement('img');im.src=URL.createObjectURL(f);im.style='width:100%;height:70px;object-fit:cover;border-radius:8px';box.appendChild(im)})}
-const CLOUDINARY_CLOUD_NAME='yqfxnygd'; // IMPORTANT: replace with the Cloud Name shown in Cloudinary Dashboard
-const CLOUDINARY_UPLOAD_PRESET='app_images';
-
-async function uploadToCloudinary(file){
-  if(!CLOUDINARY_CLOUD_NAME || CLOUDINARY_CLOUD_NAME==='17u9xbxk') throw new Error('CLOUD_NAME_MISSING_OR_WRONG');
+<footer>
+  <strong>بازارنا</strong>
+  <div class="links"><a href="#">سياسة الخصوصية</a><a href="#">شروط الاستخدام</a><a href="#">تواصل معنا</a></div>
+  <p style="margin-top:12px">© 2026 بازارنا. جميع الحقوق محفوظة.</p>
+</footer>
+</body>
+</html>
   const fd=new FormData();
   fd.append('file',file);
   fd.append('upload_preset',CLOUDINARY_UPLOAD_PRESET);
